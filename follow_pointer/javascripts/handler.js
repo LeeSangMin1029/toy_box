@@ -5,7 +5,7 @@ class HandleParticle {
   #add_number;
   constructor() {
     this.#particles = [];
-    this.#add_number = 1;
+    this.#add_number = 3;
   }
   get add_number() {
     return this.#add_number;
