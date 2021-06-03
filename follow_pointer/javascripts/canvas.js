@@ -1,4 +1,4 @@
-import { mouse } from './object.js';
+import { mouse, time } from './object.js';
 import { particleHandler } from './handler.js';
 export default class Canvas {
   #canvas;
@@ -33,6 +33,16 @@ export default class Canvas {
     this.windowSizeSetting();
   }
   event() {
+    window.addEventListener('keydown', e => {
+      switch (e.key - 0) {
+        case 1:
+          time.up();
+          break;
+        case 2:
+          time.down();
+          break;
+      }
+    });
     window.addEventListener('resize', () => {
       this.resize();
     });

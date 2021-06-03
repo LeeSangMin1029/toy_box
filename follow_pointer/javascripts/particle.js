@@ -1,4 +1,4 @@
-import { mouse, color } from './object.js';
+import { mouse, color, time } from './object.js';
 export default class Particle {
   #x;
   #y;
@@ -6,10 +6,12 @@ export default class Particle {
   #speedX;
   #speedY;
   #color;
+  #consumption;
   constructor() {
     this.#x = mouse.x;
     this.#y = mouse.y;
     this.#size = Math.random() * 8 + 1;
+    this.#consumption = -0.1;
     this.#speedX = Math.random() * 2 - 1;
     this.#speedY = Math.random() * 2 - 1;
     this.#color = `hsl(${color.hue}, 100%, 50%)`;
@@ -23,15 +25,18 @@ export default class Particle {
   get size() {
     return this.#size;
   }
+  set size(size) {
+    if (this.#size > 0.2) {
+      this.#size = size;
+    }
+  }
   get color() {
     return this.#color;
   }
   update() {
     this.#x += this.#speedX;
     this.#y += this.#speedY;
-    if (this.#size > 0.2) {
-      this.#size -= 0.1;
-    }
+    this.#size += this.#consumption * time.getSpeed();
   }
   draw(ctx) {
     ctx.fillStyle = this.#color;
