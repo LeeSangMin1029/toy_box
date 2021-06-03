@@ -21,10 +21,10 @@ export default class Canvas {
     return this.#canvas.getContext('2d');
   }
   windowSizeSetting() {
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
-    this.#width = this.canvas.width;
-    this.#height = this.canvas.height;
+    this.#canvas.width = window.innerWidth;
+    this.#canvas.height = window.innerHeight;
+    this.#width = window.innerWidth;
+    this.#height = window.innerHeight;
   }
   init() {
     this.event();
