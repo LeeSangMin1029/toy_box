@@ -9,9 +9,9 @@ export default class Particle {
   constructor() {
     this.#x = mouse.x;
     this.#y = mouse.y;
-    this.#size = Math.random() * 10 + 1;
-    this.#speedX = Math.random() * 2 - 1.0;
-    this.#speedY = Math.random() * 2 - 1.0;
+    this.#size = Math.random() * 8 + 1;
+    this.#speedX = Math.random() * 2 - 1;
+    this.#speedY = Math.random() * 2 - 1;
     this.#color = `hsl(${color.hue}, 100%, 50%)`;
   }
   get x() {
@@ -29,7 +29,9 @@ export default class Particle {
   update() {
     this.#x += this.#speedX;
     this.#y += this.#speedY;
-    if (this.#size > 0.2) this.#size -= 0.1;
+    if (this.#size > 0.2) {
+      this.#size -= 0.1;
+    }
   }
   draw(ctx) {
     ctx.fillStyle = this.#color;

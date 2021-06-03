@@ -1,4 +1,4 @@
-const animate = (animationcallback) => {
+const animate = animationcallback => {
   let start = new Date().getTime();
   const callback = () => {
     let ts = new Date().getTime();

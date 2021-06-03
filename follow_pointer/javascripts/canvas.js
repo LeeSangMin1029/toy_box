@@ -33,16 +33,16 @@ export default class Canvas {
     this.windowSizeSetting();
   }
   event() {
-    window.addEventListener('resize', function () {
+    window.addEventListener('resize', () => {
       this.resize();
     });
-    this.#canvas.addEventListener('mousemove', (e) => {
+    this.#canvas.addEventListener('mousemove', e => {
       mouse.set(e.x, e.y);
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 3; i++) {
         particleHandler.add();
       }
     });
-    this.#canvas.addEventListener('click', (e) => {
+    this.#canvas.addEventListener('click', e => {
       mouse.set(e.x, e.y);
       for (let i = 0; i < 10; i++) {
         particleHandler.add();

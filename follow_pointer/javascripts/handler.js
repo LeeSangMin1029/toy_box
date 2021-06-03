@@ -22,7 +22,7 @@ class HandleParticle {
         const dx = this.#particles[i].x - this.#particles[j].x;
         const dy = this.#particles[i].y - this.#particles[j].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 100) {
+        if (distance < 70) {
           this.#ctx.beginPath();
           this.#ctx.strokeStyle = this.#particles[i].color;
           this.#ctx.lineWidth = 1;
