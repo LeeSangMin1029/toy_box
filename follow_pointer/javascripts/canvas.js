@@ -38,7 +38,7 @@ export default class Canvas {
     });
     this.#canvas.addEventListener('mousemove', e => {
       mouse.set(e.x, e.y);
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < particleHandler.add_number; i++) {
         particleHandler.add();
       }
     });
@@ -47,6 +47,14 @@ export default class Canvas {
       for (let i = 0; i < 10; i++) {
         particleHandler.add();
       }
+    });
+    this.#canvas.addEventListener('contextmenu', e => {
+      e.preventDefault();
+    });
+    this.#canvas.addEventListener('wheel', e => {
+      e.preventDefault();
+      const number = e.deltaY * -0.01;
+      particleHandler.add_number += number;
     });
   }
 }

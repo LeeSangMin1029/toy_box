@@ -2,8 +2,19 @@ import Particle from './particle.js';
 class HandleParticle {
   #particles;
   #ctx;
+  #add_number;
   constructor() {
     this.#particles = [];
+    this.add_number = 1;
+  }
+  get add_number() {
+    return this.#add_number;
+  }
+  set add_number(add_number) {
+    if (add_number > 8) {
+      return;
+    }
+    this.#add_number = add_number < 0 ? 0 : add_number;
   }
   set ctx(ctx) {
     this.#ctx = ctx;
